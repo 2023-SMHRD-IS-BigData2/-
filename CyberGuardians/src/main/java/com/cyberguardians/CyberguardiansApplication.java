@@ -2,6 +2,7 @@ package com.cyberguardians;
 
 import javax.security.auth.login.LoginException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,11 +19,9 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 
 @SpringBootApplication
 public class CyberguardiansApplication {
-
 	public static void main(String[] args) throws LoginException {
 		ApplicationContext context = SpringApplication.run(CyberguardiansApplication.class, args);
-	    String token = "MTE5NjYzNTUzNTY3NDk3MDIxNg.Gy-MX4.QmCpTjolhKdyPN_M0-JKEKSYN2yHL4kBg5hNQE";
-
+	    String token = "MTE5NjYzNTUzNTY3NDk3MDIxNg.Gf9oCc.1BJwyksxvrflVjnoSmaiCZAwFw8lU7aKsJs7ao";
 	    ChatController chatController = context.getBean(ChatController.class);
 
 	    JDA jda = JDABuilder.createDefault(token)
