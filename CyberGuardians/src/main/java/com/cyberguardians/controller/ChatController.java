@@ -75,6 +75,8 @@ public class ChatController {
 
         // 응답에서 결과 추출
         String result = response.getBody();
+        
+        System.out.println(result);
 
         return result;
     }
