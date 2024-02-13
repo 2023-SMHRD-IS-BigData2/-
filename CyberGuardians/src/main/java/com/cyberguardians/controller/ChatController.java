@@ -69,7 +69,7 @@ public class ChatController {
         
         // REST 템플릿 생성
         RestTemplate restTemplate = new RestTemplate();
-
+        	
         // Flask 서버로 POST 요청 보내기
         ResponseEntity<String> response = restTemplate.postForEntity(flaskServerUrl, requestEntity, String.class);
 
