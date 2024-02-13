@@ -66,7 +66,7 @@ public class ChatController {
 
         // HTTP 요청 설정
         HttpEntity<Map<String, String>> requestEntity = new HttpEntity<>(requestBody, headers);
-
+        
         // REST 템플릿 생성
         RestTemplate restTemplate = new RestTemplate();
 
