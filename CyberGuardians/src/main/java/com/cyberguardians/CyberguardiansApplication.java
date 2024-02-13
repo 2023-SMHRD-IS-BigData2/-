@@ -27,7 +27,7 @@ public class CyberguardiansApplication {
 	            .setActivity(Activity.playing("메세지 기다리는 중..."))
 	            .enableIntents(GatewayIntent.MESSAGE_CONTENT)
 	            .addEventListeners(new CyberGuardiansListener(chatController))
-	            .build();	
+	            .build();		
     }
 
 }
