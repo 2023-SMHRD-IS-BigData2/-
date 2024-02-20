@@ -1,8 +1,6 @@
 package com.cyberguardians.listener;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,7 +32,7 @@ public class CyberGuardiansListener extends ListenerAdapter {
 		this.chatController = chatController;
 		this.urlController = urlController;
 	}
-
+	
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
 
@@ -124,8 +122,8 @@ public class CyberGuardiansListener extends ListenerAdapter {
 		case "멀웨어페이지":
 			returnMessage = chatController.chat("멀웨어 관련 예방법 및 해결방안 알려줘").getChoices().get(0).getMessage().getContent();
 			break;
-		case "who":
-			returnMessage = user.getAsMention() + "님 저는 Javas팀이 JDA로 구현한 Bot이에요 !";
+		case "소개":
+			returnMessage = user.getAsMention() + "님 저는 Javas팀이 JDA로 구현한 Discord Bot이에요 !\n자세한 소개는 http://220.80.88.122:8082/javas 참고하세요 !";
 			break;
 		default:
 			returnMessage = "명령어를 확인해 주세요.";
