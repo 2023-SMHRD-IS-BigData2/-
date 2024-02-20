@@ -7,18 +7,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import com.cyberguardians.controller.ChatController;
-import com.cyberguardians.entity.ChatBotResponse;
+import com.cyberguardians.controller.UrlController;
+import com.cyberguardians.entity.Javas_Url;
 
 import lombok.extern.slf4j.Slf4j;
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
@@ -29,13 +24,15 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 @Slf4j
 public class CyberGuardiansListener extends ListenerAdapter {
 
-	private Map<Long, String> originalMessages = new HashMap<>();
-
 	@Autowired
 	private ChatController chatController;
 
-	public CyberGuardiansListener(ChatController chatController) {
+	@Autowired
+	private UrlController urlController;
+
+	public CyberGuardiansListener(ChatController chatController, UrlController urlController) {
 		this.chatController = chatController;
+		this.urlController = urlController;
 	}
 
 	@Override
@@ -45,46 +42,66 @@ public class CyberGuardiansListener extends ListenerAdapter {
 		TextChannel textChannel = event.getChannel().asTextChannel();
 		Message message = event.getMessage();
 
-		log.info(" get message : " + message.getContentDisplay());
+		log.info("get message : " + message.getContentDisplay());
 
 		if (user.isBot()) {
 			return;
-		} else if (message.getContentDisplay().equals("")) {
+		} else if (message == null || message.getContentDisplay() == null || message.getContentDisplay().equals("")) {
 			log.info("디스코드 Message 문자열 값 공백");
 		}
 
-		String[] messageArray = message.getContentDisplay().split(" ");
+		if (message != null || message.getContentDisplay() != null) {
+			// URL 추출을 위한 정규표현식 패턴
+			String regex = "(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)";
+			Pattern pattern = Pattern.compile(regex);
+			Matcher matcher = pattern.matcher(message.getContentRaw());
+			// 매칭된 URL 출력
+			while (matcher.find()) {
+				int result = 0;
+				String matchedURL = matcher.group(0);
+				System.out.println("matchedURL : " + matchedURL);
+				Javas_Url selected = urlController.selectUrl(matchedURL);
+				System.out.println("selected : " + selected);
+				if (selected == null) {
+					result = chatController.checkUrl(matchedURL);
+					System.out.println("checkUrl result : " + result);
+				} else if (selected != null) {
+					result = selected.getUrl_result();
+					System.out.println("selected result : " + result);
+				}
 
-		// URL 추출을 위한 정규표현식 패턴
-		String regex = "(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)";
-
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(message.getContentRaw());
-
-		// 매칭된 URL 출력
-		while (matcher.find()) {
-			String matchedURL = matcher.group(0);
-			System.out.println("matchedURL " + matchedURL);
-			// 여기에 정규표현식에 해당하는 prompt가 있는 경우의 동작을 추가
-			if (matcher.group(0) != null) {
-				String result = chatController.checkUrl(matchedURL);
-				// 메시지를 가리는 기능을 사용하여 가려진 메시지로 변경
-				message.delete().queue();
-				String originalContent = message.getContentRaw();
-				originalMessages.put(message.getIdLong(), originalContent);
-				textChannel.sendMessage(user.getAsMention() + "님 링크가 발견되어 채팅이 지워졌습니다!").queue();
+				if (result > 0) {
+					message.delete().queue();
+					textChannel.sendMessage(user.getAsMention() + " ||" + message.getContentDisplay() + "||").queue();
+					if (result == 1) {
+						textChannel.sendMessage("위 사이트는 '모방페이지'입니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '모방페이지'를 검색해주세요.")
+								.queue();
+					} else if (result == 2) {
+						textChannel.sendMessage("위 사이트는 '피싱사이트'입니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '피싱사이트'를 검색해주세요.")
+								.queue();
+					} else if (result == 3) {
+						textChannel.sendMessage("위 사이트는 '멀웨어페이지'입니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '멀웨어페이지'를 검색해주세요.")
+								.queue();
+					}
+				} else if (result == 0) {
+					textChannel.sendMessage("링크가 안전합니다!").queue();
+					if (selected == null) {
+						urlController.insertUrl(matchedURL, result);
+					}
+				} else if (result < 0) {
+					textChannel.sendMessage("링크 확인 불가!").queue();
+				}
 			}
 		}
 
+		String[] messageArray = message.getContentDisplay().split("! ");
 		if (messageArray[0].equalsIgnoreCase("")) {
-
 			String[] messageArgs = Arrays.copyOfRange(messageArray, 1, messageArray.length);
-
 			for (String msg : messageArgs) {
 				String returnMessage = sendMessage(event, msg);
 				textChannel.sendMessage(returnMessage).queue();
 			}
-		} 
+		}
 
 	}
 
@@ -93,21 +110,22 @@ public class CyberGuardiansListener extends ListenerAdapter {
 		String returnMessage = "";
 
 		switch (message) {
-		case "안녕 !":
+		case "hi":
 			returnMessage = user.getAsMention() + "님 반갑습니다 !";
 			break;
-		case "http://abc.com/":
-			// "트로이목마 악성코드에 대한 예방법과 해결방안 알려줘"를 ChatController로 보냄
-			ChatBotResponse chatResponse = chatController.chat("트로이목마 악성코드에 대한 예방법과 해결방안 알려줘");
-
-			// chatResponse에서 답변을 가져와서 returnMessage에 설정
-			returnMessage = "Chat-GPT 응답: " + chatResponse.getChoices().get(0).getMessage().getContent();
+		case "모방페이지":
+			returnMessage = chatController.chat("모방페이지 관련 예방법 및 해결방안 알려줘").getChoices().get(0).getMessage()
+					.getContent();
 			break;
-		case "test":
-			returnMessage = user.getAsTag() + "님 테스트 중이세요?";
+		case "피싱사이트":
+			returnMessage = chatController.chat("피싱사이트 관련 예방법 및 해결방안 알려줘").getChoices().get(0).getMessage()
+					.getContent();
 			break;
-		case "누구야":
-			returnMessage = user.getAsMention() + "님 저는 찬호님이 JDA로 구현한 Bot이에요 !";
+		case "멀웨어페이지":
+			returnMessage = chatController.chat("멀웨어 관련 예방법 및 해결방안 알려줘").getChoices().get(0).getMessage().getContent();
+			break;
+		case "who":
+			returnMessage = user.getAsMention() + "님 저는 Javas팀이 JDA로 구현한 Bot이에요 !";
 			break;
 		default:
 			returnMessage = "명령어를 확인해 주세요.";
