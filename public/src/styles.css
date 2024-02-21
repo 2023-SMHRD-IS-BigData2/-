@@ -68,10 +68,16 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+.featurecenter{
+  position: relative;
+  top: 70px;
+  left: 100px;
+  text-align: center;
+}
 
 #features{
   background-color: #d2c9c9f5;
-  height: 150px;
+  height: 260px;
 }
 .check{
   background-image: linear-gradient(to left, #f8f4f5, #f8f4f5);
@@ -95,7 +101,7 @@
 
 .mainbox{
   background-color: #0d6efd;
-  height: 350px;
+  height: 546px;
 }
 
 /*
@@ -125,6 +131,10 @@
 }
 */
 
+.chatting{
+  position: relative;
+  left: -60px;
+}
 
 .button1{
   align-items: center;
@@ -145,14 +155,14 @@
   background-color: #d2c9c988;
   color: white;
   height: 40px;
-  width: 160px;
+  width: 180px;
   left: 150px;
   top: -40px;
 }
 
 .box1{
   text-align: left;
-  padding-top: 4rem;
+  padding-top: 6rem;
   padding-left: 20rem;
   width: 300px;
   height: 200px;
@@ -168,7 +178,7 @@
 
 video{
   box-shadow: 3px;
-  padding-top: 6rem;
+  padding-top: 7rem;
   margin-inline-start: auto;
   margin-inline-end: auto;
 }
@@ -302,6 +312,7 @@ video{
   display: flex;
   flex-wrap: wrap;
   flex-grow: inherit;
+  justify-content: center;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -313,24 +324,27 @@ video{
 }
 
 .css-1069cn5{
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
 }
 
 .css-1da90c5{
   font-size: 40px;
   text-align: center;
+  border: 2px;
 }
 
 .css-o5ld4p {
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 60px;
   margin-inline: auto;
   width : 350px;
   height : 200px;
   text-align: center;
   display: flex;
-    justify-content: center
+  justify-content: center;
+  backface-visibility: hidden;
+  transform:scale(1.4); 
 }
 
 .css-89ddv5 {
@@ -711,6 +725,18 @@ progress {
   .display-1 {
     font-size: 5rem;
   }
+}
+
+.foot{
+  height: 140px;
+  background-color: black;
+}
+
+.foottext{
+  position: relative;
+  top: 50px;
+  font-size: 30px;
+  margin: 0px !important;
 }
 
 .display-2 {
@@ -3832,7 +3858,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-  font-size: var(--bs-nav-link-font-size);
+  font-size: 20px;
   font-weight: var(--bs-nav-link-font-weight);
   color: var(--bs-nav-link-color);
   text-decoration: none;
@@ -4062,6 +4088,8 @@ textarea.form-control-lg {
   background-size: 100%;
 }
 
+
+
 .navbar-nav-scroll {
   max-height: var(--bs-scroll-height, 75vh);
   overflow-y: auto;
@@ -4160,6 +4188,10 @@ textarea.form-control-lg {
     padding: 0;
     overflow-y: visible;
   }
+}
+
+#mainNav{
+  height: 90px;
 }
 @media (min-width: 992px) {
   .navbar-expand-lg {
@@ -4355,8 +4387,25 @@ textarea.form-control-lg {
   --bs-navbar-active-color: #fff;
   --bs-navbar-brand-color: #fff;
   --bs-navbar-brand-hover-color: #fff;
-  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
-  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-navbar-toggler-border-color: rgba(0, 0, 0, 1);
+  --bs-navbar-toggler-padding-y: 0.25rem;
+  --bs-navbar-toggler-padding-x: 0.75rem;
+  --bs-navbar-toggler-font-size: 1.25rem;
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-navbar-toggler-border-radius: 0.375rem;
+  --bs-navbar-toggler-focus-width: 0.25rem;
+  --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-image: var(--bs-navbar-toggler-icon-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 
 .card {
@@ -7712,7 +7761,7 @@ textarea.form-control-lg {
 }
 
 .m-2 {
-  margin: 0.5rem !important;
+  margin: 0.5rem;
 }
 
 .m-3 {
@@ -11039,7 +11088,12 @@ html {
 }
 
 .featext{
-  font-size: 30px;
+  font-size: 25px;
+}
+
+.chattin1{
+  position: relative;
+  left: -20px;
 }
 
 .feature {
