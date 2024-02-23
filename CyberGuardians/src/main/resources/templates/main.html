@@ -15,178 +15,118 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="src/styles.css" rel="stylesheet" />
 </head>
+
 <body id="page-top">
-	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-		<div class="container px-4">
-			<a class="navbar-brand" href="/javas"><img
-				src="src/javaslogo.png" height="35"></a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="#page-top">Top</a></li>
-					<li class="nav-item"><a class="nav-link" href="product">소개하기</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="https://discord.com/api/oauth2/authorize?client_id=1196635535674970216&permissions=8&scope=bot">초대하기</a></li>
-					<li class="nav-item"><a class="nav-link" href="information">설정방법</a></li>
-				</ul>
+	<div id="mainContainer">
+		<!-- Navigation-->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
+			<div class="container px-4">
+				<a class="navbar-brand" href="/javas"><img
+					src="src/javaslogo.png" height="35"></a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+					aria-controls="navbarResponsive" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item"><a class="nav-link" href="product">소개하기</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="https://discord.com/api/oauth2/authorize?client_id=1196635535674970216&permissions=8&scope=bot">초대하기</a>
+						</li>
+						<li class="nav-item"><a class="nav-link"
+							href="information">설정방법</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
-	<!-- Header-->
-	<main class="bg-dark">
-		<div class="mainbox">
-			<div class="background">
-				<div class="box1">
-					<h3 class="check">
-						자바스 봇으로<br>모든 URL를
-					</h3>
-					<p class="check1">
-						자바스로 디스코드를<br>위험한 url에 대비하세요
-					</p>
-					<div>
-						<a
-							href="https://discord.com/api/oauth2/authorize?client_id=1196635535674970216&permissions=8&scope=bot">
+		</nav>
+
+		<!-- Header-->
+		<main class="bg-dark">
+			<div class="mainbox">
+				<div class="background">
+					<div class="box1">
+						<div class="check1">
+							Javas 봇으로<br> 모든 URL을 분석하세요
+						</div>
+						<div class="check2">위험한 URL로부터 디스코드 서버를 안전하게</div>
+						<a href="product">
 							<button class="button1">
-								<svg xmlns="http://www.w3.org/2000/svg" width="15px"
-									height="30px" viewBox="0 0 448 512">
-									<path
-										d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" /></svg>
-								<span> 서버에 초대하기</span>
+								<img class="javasSvg" src="src\Img\JavasInfo.svg" /> <span>Javas
+									소개</span>
 							</button>
 						</a> <a href="information">
 							<button class="button2">
-								<svg width="15px" height="30px" style="fill: white;"
-									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-									<path
-										d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z" /></svg>
-								<span> 설정하기 게시판</span>
+								<img class="javasSvg" src="src\Img\JavasSet.svg" /> <span>
+									Javas 설정</span>
 							</button>
 						</a>
 					</div>
 				</div>
-				<div class="box2"></div>
-				<video class="video" style="width: 20%; height: 10%;"
-					src="https://cdn.haru.im/assets/web/showcase.mp4" muted autoplay
-					playsinline loop></video>
+				<!-- <video class="video" style="width: 25%;" src="https://cdn.haru.im/assets/web/showcase.mp4" muted autoplay playsinline loop></video>	 -->
 			</div>
-		</div>
 
-		<!-- Features section-->
-		<section class="py-4 border-bottom" id="features">
-			<div class="container px-7 my-1 ">
-				<div class="row gx-6">
-					<div class="col-lg-4  mb-5">
-						<h3>
-							<div
-								class="feature bg-primary bg-gradient text-white rounded-4 mb-4">
-								<svg width="20px" style="fill: white;"
-									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-									<path
-										d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z" />
-								</svg>
-							</div>
-							소개하기
-						</h3>
-						<p class="text-white featext">aaa</p>
+			<!-- Features section-->
+			<section id="features">
+				<div class="page-middle">
+					<div class="midbox">
+						<p class="check3">
+							<svg class="javasSvg2" fill="#02A1F1"
+								xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+								id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24"
+								style="enable-background: new 0 0 24 24;" xml:space="preserve"
+								width="512" height="512">
+                                <g>
+                                    <path
+									d="M20.317,4.37c-1.53-0.702-3.17-1.219-4.885-1.515c-0.031-0.006-0.062,0.009-0.079,0.037   c-0.211,0.375-0.445,0.865-0.608,1.249c-1.845-0.276-3.68-0.276-5.487,0C9.095,3.748,8.852,3.267,8.641,2.892   C8.624,2.864,8.593,2.85,8.562,2.855C6.848,3.15,5.208,3.667,3.677,4.37C3.664,4.375,3.652,4.385,3.645,4.397   c-3.111,4.648-3.964,9.182-3.546,13.66c0.002,0.022,0.014,0.043,0.031,0.056c2.053,1.508,4.041,2.423,5.993,3.029   c0.031,0.01,0.064-0.002,0.084-0.028c0.462-0.63,0.873-1.295,1.226-1.994c0.021-0.041,0.001-0.09-0.042-0.106   c-0.653-0.248-1.274-0.55-1.872-0.892c-0.047-0.028-0.051-0.095-0.008-0.128c0.126-0.094,0.252-0.192,0.372-0.291   c0.022-0.018,0.052-0.022,0.078-0.01c3.928,1.793,8.18,1.793,12.061,0c0.026-0.012,0.056-0.009,0.079,0.01   c0.12,0.099,0.246,0.198,0.373,0.292c0.044,0.032,0.041,0.1-0.007,0.128c-0.598,0.349-1.219,0.645-1.873,0.891   c-0.043,0.016-0.061,0.066-0.041,0.107c0.36,0.698,0.772,1.363,1.225,1.993c0.019,0.027,0.053,0.038,0.084,0.029   c1.961-0.607,3.95-1.522,6.002-3.029c0.018-0.013,0.029-0.033,0.031-0.055c0.5-5.177-0.838-9.674-3.548-13.66   C20.342,4.385,20.33,4.375,20.317,4.37z M8.02,15.331c-1.183,0-2.157-1.086-2.157-2.419s0.955-2.419,2.157-2.419   c1.211,0,2.176,1.095,2.157,2.419C10.177,14.246,9.221,15.331,8.02,15.331z M15.995,15.331c-1.182,0-2.157-1.086-2.157-2.419   s0.955-2.419,2.157-2.419c1.211,0,2.176,1.095,2.157,2.419C18.152,14.246,17.206,15.331,15.995,15.331z" />
+                                </g>
+                            </svg>
+							&nbsp&nbsp소개하기
+						</p>
+						<p class="check4">Javas 소개</p>
 					</div>
-					<div class="col-lg-4 mb-5">
-						<h3>
-							<div
-								class="feature bg-primary bg-gradient text-white rounded-4 mb-4">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20px"
-									style="fill: white;" viewBox="0 0 448 512">
-									<path
-										d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" /></svg>
-							</div>
-							초대하기
-						</h3>
-						<p class="text-white featext">aaa</p>
+					<div class="midbox">
+						<p class="check3">
+							<svg class="javasSvg2" fill="#02A1F1"
+								xmlns="http://www.w3.org/2000/svg" id="Layer_1"
+								data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512">
+                                <path
+									d="m9,6C4.038,6,0,10.038,0,15s4.038,9,9,9,9-4.038,9-9S13.962,6,9,6Zm0,15c-3.309,0-6-2.691-6-6s2.691-6,6-6,6,2.691,6,6-2.691,6-6,6Zm3.236-4.672c.371.406.347,1.033-.057,1.406-.14.13-1.419,1.266-3.179,1.266s-3.038-1.136-3.178-1.265c-.406-.375-.431-1.007-.057-1.413.375-.405,1.007-.431,1.413-.057.003.003.83.735,1.822.735s1.817-.731,1.826-.738c.407-.368,1.04-.339,1.41.066Zm-5.736-1.328c-.828,0-1.5-.672-1.5-1.5s.672-1.5,1.5-1.5,1.5.672,1.5,1.5-.672,1.5-1.5,1.5Zm6.5-1.5c0,.828-.672,1.5-1.5,1.5s-1.5-.672-1.5-1.5.672-1.5,1.5-1.5,1.5.672,1.5,1.5Zm11-9c0,.829-.671,1.5-1.5,1.5h-1.5v1.5c0,.829-.671,1.5-1.5,1.5s-1.5-.671-1.5-1.5v-1.5h-1.5c-.829,0-1.5-.671-1.5-1.5s.671-1.5,1.5-1.5h1.5v-1.5c0-.829.671-1.5,1.5-1.5s1.5.671,1.5,1.5v1.5h1.5c.829,0,1.5.671,1.5,1.5Z" />
+                            </svg>
+							&nbsp&nbsp초대하기
+						</p>
+						<p class="check4">Javas 디스코드 봇 초대</p>
 					</div>
-
-					<div class="col-lg-2 mb-2">
-						<h3>
-							<div
-								class="feature bg-primary bg-gradient text-white rounded-4 mb-4">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20px"
-									style="fill: white;" viewBox="0 0 512 512">
-									<path
-										d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" /></svg>
-							</div>
-							문의하기
-						</h3>
-						<p class="text-white featext">aaa</p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Contact section-->
-		<!-- <section class="bg-light py-5">
-			<div class="container px-5 my-5 px-5">
-				<div class="text-center mb-5">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20px"
-							style="fill: white;" viewBox="0 0 512 512">
-							<path
-								d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" /></svg>
-					</div>
-					<h2 class="fw-bolder">문의하기</h2>
-					<p class="lead mb-0">어떤점이 불편하신지 알려주시겠어요?</p>
-				</div>
-				<div class="row gx-5 justify-content-center">
-					<div class="col-lg-6">
-						<form id="contactForm" data-sb-form-api-token="API_TOKEN">
-							Email address input
-							<div class="form-floating mb-3">
-								<input class="form-control" id="email" type="email"
-									placeholder="name@example.com"
-									data-sb-validations="required,email" /> <label for="email">Email</label>
-								<div class="invalid-feedback" data-sb-feedback="email:required">An
-									email is required.</div>
-								<div class="invalid-feedback" data-sb-feedback="email:email">Email
-									is not valid.</div>
-							</div>
-							Name input
-							<div class="form-floating mb-3">
-								<input class="form-control" id="name" type="text"
-									placeholder="Enter your name..." data-sb-validations="required" />
-								<label for="subject">Subject</label>
-								<div class="invalid-feedback" data-sb-feedback="name:required">A
-									name is required.</div>
-							</div>
-							Message input
-							<div class="form-floating mb-3">
-								<textarea class="form-control" id="message" type="text"
-									placeholder="Enter your message here..." style="height: 10rem"
-									data-sb-validations="required"></textarea>
-								<label for="message">Message</label>
-								<div class="invalid-feedback"
-									data-sb-feedback="message:required">A message is
-									required.</div>
-							</div>
-							<button class="btn btn-primary btn-lg" href="question.html"
-								type="submit">Submit</button>
-						</form>
+					<div class="midbox">
+						<p class="check3">
+							<svg class="javasSvg2" fill="#02A1F1"
+								xmlns="http://www.w3.org/2000/svg" id="Outline"
+								viewBox="0 0 24 24" width="512" height="512">
+                                <path
+									d="M1,4.75H3.736a3.728,3.728,0,0,0,7.195,0H23a1,1,0,0,0,0-2H10.931a3.728,3.728,0,0,0-7.195,0H1a1,1,0,0,0,0,2ZM7.333,2a1.75,1.75,0,1,1-1.75,1.75A1.752,1.752,0,0,1,7.333,2Z" />
+                                <path
+									d="M23,11H20.264a3.727,3.727,0,0,0-7.194,0H1a1,1,0,0,0,0,2H13.07a3.727,3.727,0,0,0,7.194,0H23a1,1,0,0,0,0-2Zm-6.333,2.75A1.75,1.75,0,1,1,18.417,12,1.752,1.752,0,0,1,16.667,13.75Z" />
+                                <path
+									d="M23,19.25H10.931a3.728,3.728,0,0,0-7.195,0H1a1,1,0,0,0,0,2H3.736a3.728,3.728,0,0,0,7.195,0H23a1,1,0,0,0,0-2ZM7.333,22a1.75,1.75,0,1,1,1.75-1.75A1.753,1.753,0,0,1,7.333,22Z" />
+                            </svg>
+							&nbsp&nbsp설정방법
+						</p>
+						<p class="check4">Javas 기능 및 설정</p>
 					</div>
 				</div>
-			</div>
-		</section> -->
-	</main>
-	<!-- Footer-->
-	<footer class="py-5 bg-dark">
-		<div class="container px-4">
-			<p class="m-0 text-center text-white">Copyright &copy; Javas</p>
-		</div>
-	</footer>
-	<!-- Bootstrap core JS-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+				<hr>
+				<!-- bottom section -->
+				<section id="bottom">
+					<div class="botbox">
+						<p class="check5">
+							Copyright &copy; Javas<br>Designed by Freepik
+						</p>
+					</div>
+				</section>
+			</section>
+		</main>
+	</div>
 </body>
 </html>

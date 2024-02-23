@@ -72,13 +72,13 @@ public class CyberGuardiansListener extends ListenerAdapter {
 					message.delete().queue();
 					textChannel.sendMessage(user.getAsMention() + " ||" + message.getContentDisplay() + "||").queue();
 					if (result == 1) {
-						textChannel.sendMessage("위 사이트는 '모방페이지'입니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '모방페이지'를 검색해주세요.")
+						textChannel.sendMessage("위 사이트는 '딥페이지' 위험이 있습니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '딥페이지'를 검색해주세요.")
 								.queue();
 					} else if (result == 2) {
-						textChannel.sendMessage("위 사이트는 '피싱사이트'입니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '피싱사이트'를 검색해주세요.")
+						textChannel.sendMessage("위 사이트는 '피싱사이트' 위험이 있습니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '피싱사이트'를 검색해주세요.")
 								.queue();
 					} else if (result == 3) {
-						textChannel.sendMessage("위 사이트는 '멀웨어페이지'입니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '멀웨어페이지'를 검색해주세요.")
+						textChannel.sendMessage("위 사이트는 '멀웨어페이지' 위험이 있습니다. 주의 하세요! \n자세한 내용은 명령어(!)를 통해 '멀웨어페이지'를 검색해주세요.")
 								.queue();
 					}
 				} else if (result == 0) {
@@ -111,16 +111,16 @@ public class CyberGuardiansListener extends ListenerAdapter {
 		case "hi":
 			returnMessage = user.getAsMention() + "님 반갑습니다 !";
 			break;
-		case "모방페이지":
+		case "딥페이지":
 			returnMessage = chatController.chat("'딥페이지' 관련된 사이트 위험요소와 피해 사례와 해결방안 구체적으로 설명해줘").getChoices().get(0).getMessage()
 					.getContent();
 			break;
 		case "피싱사이트":
-			returnMessage = chatController.chat("피싱사이트 관련 예방법 및 해결방안 알려줘").getChoices().get(0).getMessage()
+			returnMessage = chatController.chat("피싱사이트 관련된 사이트 위험요소와 피해 사례와 해결방안 구체적으로 설명해줘").getChoices().get(0).getMessage()
 					.getContent();
 			break;
 		case "멀웨어페이지":
-			returnMessage = chatController.chat("멀웨어 관련 예방법 및 해결방안 알려줘").getChoices().get(0).getMessage().getContent();
+			returnMessage = chatController.chat("멀웨어 관련된 사이트 위험요소와 피해 사례와 해결방안 구체적으로 설명해줘").getChoices().get(0).getMessage().getContent();
 			break;
 		case "소개":
 			returnMessage = user.getAsMention() + "님 저는 Javas팀이 JDA로 구현한 Discord Bot이에요 !\n자세한 소개는 http://220.80.88.122:8082/javas 참고하세요 !";
