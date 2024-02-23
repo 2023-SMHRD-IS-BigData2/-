@@ -55,7 +55,7 @@ public class CyberGuardiansListener extends ListenerAdapter {
 			Matcher matcher = pattern.matcher(message.getContentRaw());
 			// 매칭된 URL 출력
 			while (matcher.find()) {
-				int result = 0;
+				int result = -1;
 				String matchedURL = matcher.group(0);
 				System.out.println("matchedURL : " + matchedURL);
 				Javas_Url selected = urlController.selectUrl(matchedURL);
@@ -112,7 +112,7 @@ public class CyberGuardiansListener extends ListenerAdapter {
 			returnMessage = user.getAsMention() + "님 반갑습니다 !";
 			break;
 		case "모방페이지":
-			returnMessage = chatController.chat("모방페이지 관련 예방법 및 해결방안 알려줘").getChoices().get(0).getMessage()
+			returnMessage = chatController.chat("'딥페이지' 관련된 사이트 위험요소와 피해 사례와 해결방안 구체적으로 설명해줘").getChoices().get(0).getMessage()
 					.getContent();
 			break;
 		case "피싱사이트":

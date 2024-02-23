@@ -52,6 +52,7 @@ public class ChatController {
 				temperature, maxTokens);
 		System.out.println("chat : " + request);
 		ChatBotResponse response = restTemplate.postForObject(apiUrl, request, ChatBotResponse.class);
+		System.out.println("response : " + response);
 		return response;
 	}
 

@@ -7,14 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.cyberguardians.entity.Javas_Question;
 import com.cyberguardians.repository.QuestionRepository;
 
 @Controller
-public class QuestionController {
+public class PageController {
 
 	@Autowired
 	private QuestionRepository repo;
