@@ -103,29 +103,6 @@ header {
   background-attachment: fixed;
 }
 
-.section1{
-  background-image: url(../src/img2.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.section2{
-  background-image: url(../src/img3.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.section3{
-  background-image: url(../src/img4.jpg);
-  background-position: top center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -3653,10 +3630,10 @@ textarea.form-control-lg {
   list-style: none;
 }
 
-.foot{
+/* .foot{
   height: 140px;
   background-color: black;
-}
+} */
 
 .foottext{
   position: relative;
@@ -3772,7 +3749,7 @@ textarea.form-control-lg {
   display: block;
 }
 
-.navbar {
+/* .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
   --bs-navbar-color: rgba(0, 0, 0, 0.55);
@@ -3799,7 +3776,7 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
-}
+} */
 .navbar > .container,
 .navbar > .container-fluid,
 .navbar > .container-sm,
@@ -8125,10 +8102,10 @@ textarea.form-control-lg {
   color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important;
 }
 
-.text-white {
+/* .text-white {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
-}
+} */
 
 .text-body {
   --bs-text-opacity: 1;
@@ -8145,10 +8122,10 @@ textarea.form-control-lg {
   color: rgba(0, 0, 0, 0.5) !important;
 }
 
-.text-white-50 {
+/* .text-white-50 {
   --bs-text-opacity: 1;
   color: rgba(255, 255, 255, 0.5) !important;
-}
+} */
 
 .text-reset {
   --bs-text-opacity: 1;
@@ -8171,10 +8148,7 @@ textarea.form-control-lg {
   --bs-text-opacity: 1;
 }
 
-.bg-primary {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
-}
+
 
 .bg-secondary {
   --bs-bg-opacity: 1;
@@ -10880,7 +10854,3 @@ header {
   padding-bottom: 6rem;
 }
 
-section {
-  padding-top: 9rem;
-  padding-bottom: 9rem;
-}
